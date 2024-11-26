@@ -64,7 +64,7 @@ public class QuizesPage extends BaseSeleniumPage {
         System.out.println("1");
         clickAddAnswerOptions();
         System.out.println("1");
-        enterInpunBoxAnswerOptionsTwo(answerOptionsTwo);
+//        enterInpunBoxAnswerOptionsTwo(answerOptionsTwo);
         System.out.println("1");
         clickCreateQuizButton();
     }

@@ -4,6 +4,7 @@ import core.BaseSeleniumPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 
 public class MainPage extends BaseSeleniumPage {
@@ -24,6 +25,10 @@ public class MainPage extends BaseSeleniumPage {
     @FindBy(xpath = "//a[contains(text(),'Курсы')]")
     private WebElement linkCourse;
 
+    @FindBy(xpath = "//a[contains(text(),'Пользователи')]")
+    private WebElement linkUsers;
+
+
 
     public MainPage() {
         PageFactory.initElements(driver, this);
@@ -35,23 +40,40 @@ public class MainPage extends BaseSeleniumPage {
 
 
     public InterviewsPage openInterviewsPage(){
-        linkInterviews.click();
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(linkInterviews));
+        element.click();
         return new InterviewsPage();
     }
     public QuestionsPage openQuestionsPage(){
-        linkQuestions.click();
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(linkQuestions));
+        element.click();
         return new QuestionsPage();
     }
     public QuizesPage openQuizesPage(){
-        linkQuizes.click();
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(linkQuizes));
+        element.click();
         return new QuizesPage();
     }
     public ModulePage openModulePage(){
-        linkModule.click();
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(linkModule));
+
+        element.click();
         return new ModulePage();
     }
     public CoursePage openCoursePage(){
-        linkCourse.click();
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(linkCourse));
+        element.click();
         return new CoursePage();
+    }
+    public UsersPage openUsersPage(){
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(linkUsers));
+        element.click();
+        return new UsersPage();
+    }
+
+    public VoiceCoursePage openVoiceCoursePage(){
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(linkCourse));
+        element.click();
+        return new VoiceCoursePage();
     }
 }

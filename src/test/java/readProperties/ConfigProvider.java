@@ -13,6 +13,7 @@ public interface ConfigProvider {
     }
 
     String URL = readConfig().getString("url");
+    String URL2 = readConfig().getString("url2");
     String USER_LOGIN = readConfig().getString("usersParams.login");
     String USER_PASSWORD = readConfig().getString("usersParams.passwodr");
 }

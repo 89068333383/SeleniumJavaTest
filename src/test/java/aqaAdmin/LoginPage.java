@@ -15,11 +15,10 @@ public class LoginPage extends BaseSeleniumPage {
     @FindBy(id = "password")
     private WebElement passwordInput;
 
-//    @FindBy(xpath = "//button[@Contains='Вход'")
-//    private WebElement buttonInput;
+
 
     public LoginPage() {
-        driver.get(ConfigProvider.URL);
+        driver.get(ConfigProvider.URL2);
         PageFactory.initElements(driver, this);
     }
 
