@@ -28,6 +28,14 @@ public class MainPage extends BaseSeleniumPage {
     @FindBy(xpath = "//a[contains(text(),'Пользователи')]")
     private WebElement linkUsers;
 
+    @FindBy(xpath = "//a[@href='/courses']")
+    private WebElement linkCourses;
+
+    @FindBy(xpath = "//div[@class='MuiTypography-root MuiTypography-h6 top-links css-1a3lqbo']/a")
+    private WebElement menuInteviews;
+
+
+
 
 
     public MainPage() {
@@ -72,8 +80,16 @@ public class MainPage extends BaseSeleniumPage {
     }
 
     public VoiceCoursePage openVoiceCoursePage(){
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(linkCourse));
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(linkCourses));
         element.click();
         return new VoiceCoursePage();
     }
+
+    public EditInterviewsPage openEditInterviewsPage(){
+
+        WebElement elementMenuInterviews = wait.until(ExpectedConditions.elementToBeClickable(menuInteviews));
+        elementMenuInterviews.click();
+        return new EditInterviewsPage();
+    }
+
 }

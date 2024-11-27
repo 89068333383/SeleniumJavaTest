@@ -18,7 +18,7 @@ public class LoginPage extends BaseSeleniumPage {
 
 
     public LoginPage() {
-        driver.get(ConfigProvider.URL2);
+        driver.get(ConfigProvider.URL);
         PageFactory.initElements(driver, this);
     }
 

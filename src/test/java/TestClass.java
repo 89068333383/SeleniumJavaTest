@@ -1,8 +1,10 @@
 import aqaAdmin.LoginPage;
 import core.BaseSeleniumTest;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+import org.openqa.selenium.chrome.ChromeDriver;
 import readProperties.ConfigProvider;
 
 public class TestClass extends BaseSeleniumTest {
@@ -11,7 +13,7 @@ public class TestClass extends BaseSeleniumTest {
     public void addInterviews() {
         LoginPage loginPage = new LoginPage();
         loginPage.auth(ConfigProvider.USER_LOGIN,ConfigProvider.USER_PASSWORD)
-                .openInterviewsPage().createInterviews("New interviews");
+                .openInterviewsPage().createInterviews("interviews for edit");
     }
 
     @Test
@@ -87,6 +89,13 @@ public class TestClass extends BaseSeleniumTest {
     public void addVoice(){
         LoginPage loginPage = new LoginPage();
         loginPage.auth(ConfigProvider.USER_LOGIN,ConfigProvider.USER_PASSWORD)
-                .openVoiceCoursePage();
+                .openVoiceCoursePage().addVoice();
+    }
+
+    @Test
+    public void openEditInterviewsPage(){
+        LoginPage loginPage = new LoginPage();
+        loginPage.auth(ConfigProvider.USER_LOGIN,ConfigProvider.USER_PASSWORD)
+                .openEditInterviewsPage().addAndEditInterviews();
     }
 }
