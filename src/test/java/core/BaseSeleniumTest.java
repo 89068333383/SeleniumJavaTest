@@ -11,8 +11,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.mobile.NetworkConnection;
 
 
+import java.sql.Driver;
 import java.util.concurrent.TimeUnit;
 
 abstract public class BaseSeleniumTest {
@@ -38,7 +40,8 @@ abstract public class BaseSeleniumTest {
 
     @AfterEach
     public void tearDown() {
-        driver.close(); // - закрытие драйвера
-        driver.quit(); // - закрытие хрома
+
+//        driver.quit(); // - закрытие хрома
+//        driver.close(); // - закрытие драйвера
     }
 }
