@@ -92,10 +92,21 @@ public class TestClass extends BaseSeleniumTest {
                 .openVoiceCoursePage().addVoice();
     }
 
-    @Test
-    public void openEditInterviewsPage(){
+    @CsvFileSource(resources = "PairwiseSel.csv")
+    @ParameterizedTest
+    public void openEditInterviewsPage(
+            String inperviewName
+            , String inperviewDate
+            , String inperviewType
+            , String linkVideo
+            , String textEstimation
+    ){
         LoginPage loginPage = new LoginPage();
         loginPage.auth(ConfigProvider.USER_LOGIN,ConfigProvider.USER_PASSWORD)
-                .openEditInterviewsPage().addAndEditInterviews();
+                .openEditInterviewsPage().addAndEditInperview(inperviewName
+                        ,inperviewDate
+                        ,inperviewType
+                        ,linkVideo
+                        ,textEstimation );
     }
 }

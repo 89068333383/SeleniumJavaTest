@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 public class EditInterviewsPage extends BaseSeleniumPage {
@@ -36,7 +37,8 @@ public class EditInterviewsPage extends BaseSeleniumPage {
     @FindBy(xpath = "//tbody[1]")
     private WebElement editButtonInterviews;
     public void clickEditButtonInterviews() {
-        editButtonInterviews.click();
+        WebElement editButton = wait.until(ExpectedConditions.visibilityOf(editButtonInterviews));
+        editButton.click();
     }
 
     @FindBy(xpath = "//input[@placeholder='Название']")

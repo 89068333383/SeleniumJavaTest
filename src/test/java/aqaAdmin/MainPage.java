@@ -85,11 +85,11 @@ public class MainPage extends BaseSeleniumPage {
         return new VoiceCoursePage();
     }
 
-    public EditInterviewsPage openEditInterviewsPage(){
+    public EditInperviewPage openEditInterviewsPage(){
 
-        WebElement elementMenuInterviews = wait.until(ExpectedConditions.elementToBeClickable(menuInteviews));
+        WebElement elementMenuInterviews = wait.until(ExpectedConditions.visibilityOf(menuInteviews));
         elementMenuInterviews.click();
-        return new EditInterviewsPage();
+        return new EditInperviewPage();
     }
 
 }
