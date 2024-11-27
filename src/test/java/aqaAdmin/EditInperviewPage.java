@@ -80,7 +80,6 @@ public class EditInperviewPage extends BaseSeleniumPage {
     ) {
         clickAddButtonInterviews(); //добавить интервью
         inputBoxName(inperviewName); //ввести название интервью
-//        clickAddButtonInterviews();
         createButtonInterviews(); //нажати кнопки create
 
         clickEditButtonInterviews();
