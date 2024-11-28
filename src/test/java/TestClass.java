@@ -45,31 +45,19 @@ public class TestClass extends BaseSeleniumTest {
                 .openCoursePage().addCourse("new Course", "1041");
     }
 
-//    @Test
-
-
-//    @ParameterizedTest
-//    @CsvFileSource(resources = "Pairwise.csv")
+    @ParameterizedTest
+    @CsvFileSource(resources = "Pairwise.csv")
     public void addUsersTest(
-//            String usersName,
-//                            String userFamili
-//                            ,String userMail
-//                            ,String userLogin
-//                            ,String userPass
-//                            ,String userRole
-//                            ,String isCV
-//                            ,String userOpenSea
-//                            ,String userStatus
+            String usersName,
+                            String userFamili
+                            ,String userMail
+                            ,String userLogin
+                            ,String userPass
+                            ,String userRole
+                            ,String isCV
+                            ,String userOpenSea
+                            ,String userStatus
                             ){
-        String usersName="";
-        String userFamili="";
-        String userMail="";
-        String userLogin="";
-        String userPass="";
-        String userRole="";
-        String isCV="";
-        String userOpenSea="";
-        String userStatus="";
 
         LoginPage loginPage = new LoginPage();
         loginPage.auth(ConfigProvider.USER_LOGIN,ConfigProvider.USER_PASSWORD)
