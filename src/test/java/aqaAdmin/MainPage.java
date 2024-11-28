@@ -36,6 +36,9 @@ public class MainPage extends BaseSeleniumPage {
     @FindBy(xpath = "//div[@class='MuiTypography-root MuiTypography-h6 top-links css-1a3lqbo']/a")
     private WebElement menuInteviews;
 
+    @FindBy(xpath = "//a[contains(text(),'Экзамены')]")
+    private WebElement linkExam;
+
 
 
 
@@ -93,6 +96,12 @@ public class MainPage extends BaseSeleniumPage {
         WebElement elementMenuInterviews = wait.until(ExpectedConditions.visibilityOf(menuInteviews));
         elementMenuInterviews.click();
         return new TestPageEdit();
+    }
+
+    public ExamPage openExamPage() throws InterruptedException {
+        Thread.sleep(Duration.ofSeconds(3));
+        linkExam.click();
+        return new ExamPage();
     }
 
 }

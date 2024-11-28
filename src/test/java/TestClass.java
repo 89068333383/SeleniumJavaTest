@@ -129,4 +129,11 @@ public class TestClass extends BaseSeleniumTest {
                 ,textEstimation
         );
     }
+
+    @Test
+    public void addExam() throws InterruptedException {
+        LoginPage loginPage = new LoginPage();
+        loginPage.auth(ConfigProvider.USER_LOGIN,ConfigProvider.USER_PASSWORD)
+                .openExamPage().clickAddExam("New Examp 28.11.2024", "1124");
+    }
 }
