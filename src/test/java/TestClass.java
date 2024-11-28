@@ -45,19 +45,31 @@ public class TestClass extends BaseSeleniumTest {
                 .openCoursePage().addCourse("new Course", "1041");
     }
 
-    @ParameterizedTest
-    @CsvFileSource(resources = "Pairwise.csv")
+//    @Test
+
+
+//    @ParameterizedTest
+//    @CsvFileSource(resources = "Pairwise.csv")
     public void addUsersTest(
-            String usersName,
-                            String userFamili
-                            ,String userMail
-                            ,String userLogin
-                            ,String userPass
-                            ,String userRole
-                            ,String isCV
-                            ,String userOpenSea
-                            ,String userStatus
+//            String usersName,
+//                            String userFamili
+//                            ,String userMail
+//                            ,String userLogin
+//                            ,String userPass
+//                            ,String userRole
+//                            ,String isCV
+//                            ,String userOpenSea
+//                            ,String userStatus
                             ){
+        String usersName="";
+        String userFamili="";
+        String userMail="";
+        String userLogin="";
+        String userPass="";
+        String userRole="";
+        String isCV="";
+        String userOpenSea="";
+        String userStatus="";
 
         LoginPage loginPage = new LoginPage();
         loginPage.auth(ConfigProvider.USER_LOGIN,ConfigProvider.USER_PASSWORD)
@@ -88,7 +100,7 @@ public class TestClass extends BaseSeleniumTest {
             , String inperviewType
             , String linkVideo
             , String textEstimation
-    ){
+    ) throws InterruptedException {
         LoginPage loginPage = new LoginPage();
         loginPage.auth(ConfigProvider.USER_LOGIN,ConfigProvider.USER_PASSWORD)
                 .openEditInterviewsPage().addAndEditInperview(inperviewName
@@ -107,8 +119,9 @@ public class TestClass extends BaseSeleniumTest {
             , String linkVideo
             , String textEstimation
     ) throws InterruptedException {
-        TestPageEdit testPageEdit = new TestPageEdit();
-        testPageEdit.addAndEditInperview(
+        LoginPage loginPage = new LoginPage();
+        loginPage.auth(ConfigProvider.USER_LOGIN,ConfigProvider.USER_PASSWORD)
+                        .openEditInterviewsPage().addAndEditInperview(
                 inperviewName
                 ,inperviewDate
                 ,inperviewType

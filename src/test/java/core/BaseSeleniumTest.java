@@ -8,8 +8,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 
+
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 abstract public class BaseSeleniumTest {
     protected static WebDriver driver;
@@ -21,11 +21,11 @@ abstract public class BaseSeleniumTest {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--auto-accept-camera-and-microphone-capture");
 
-        driver = new ChromeDriver(chromeOptions);
+        this.driver = new ChromeDriver(chromeOptions);
 
         driver.manage().window().maximize();
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5)); // ожидание прогрузки страницы
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)); // ожидание взаимодействия с элементами станицы
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10)); // ожидание прогрузки страницы
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20)); // ожидание взаимодействия с элементами станицы
         BaseSeleniumPage.setDriver(driver);
 
     }

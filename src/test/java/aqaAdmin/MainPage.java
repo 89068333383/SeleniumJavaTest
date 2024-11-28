@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.time.Duration;
+
 
 public class MainPage extends BaseSeleniumPage {
 
@@ -85,11 +87,12 @@ public class MainPage extends BaseSeleniumPage {
         return new VoiceCoursePage();
     }
 
-    public EditInperviewPage openEditInterviewsPage(){
+    public TestPageEdit openEditInterviewsPage() throws InterruptedException {
 
+        Thread.sleep(Duration.ofSeconds(1));
         WebElement elementMenuInterviews = wait.until(ExpectedConditions.visibilityOf(menuInteviews));
         elementMenuInterviews.click();
-        return new EditInperviewPage();
+        return new TestPageEdit();
     }
 
 }

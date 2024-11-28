@@ -6,26 +6,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import readProperties.ConfigProvider;
 
 import java.time.Duration;
 
 public class TestPageEdit extends BaseSeleniumPage {
     public TestPageEdit() {
-        driver.get(ConfigProvider.URL);
         PageFactory.initElements(driver, this);
-    }
-
-    @FindBy(id = "username")
-    private WebElement userNameInput;
-    public void enterLogin(String username) {
-        userNameInput.sendKeys(username);
-    }
-
-    @FindBy(id = "password")
-    private WebElement passwordInput;
-    public void enterPassword(String pass) {
-        passwordInput.sendKeys(pass, Keys.ENTER);
     }
 
     @FindBy(xpath = "//div[@class='MuiTypography-root MuiTypography-h6 top-links css-1a3lqbo']/a")
@@ -44,7 +30,9 @@ public class TestPageEdit extends BaseSeleniumPage {
     @FindBy(xpath = "//input[@placeholder='Название']")
     private WebElement inputBoxName;
     public void inputBoxName(String inputBoxNameInterview) {
-        inputBoxName.sendKeys(inputBoxNameInterview);
+        if (inputBoxNameInterview != null) {
+            inputBoxName.sendKeys(inputBoxNameInterview);
+        }else inputBoxName.sendKeys("");
     }
 
     @FindBy(xpath = "//button[contains(text(),'Create')]")
@@ -118,8 +106,7 @@ public class TestPageEdit extends BaseSeleniumPage {
             , String linkVideo
             , String textEstimation
     ) throws InterruptedException {
-        enterLogin(ConfigProvider.USER_LOGIN);
-        enterPassword(ConfigProvider.USER_PASSWORD);
+
 
         Thread.sleep(1000);
 
