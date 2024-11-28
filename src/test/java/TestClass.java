@@ -91,9 +91,9 @@ public class TestClass extends BaseSeleniumTest {
         loginPage.auth(ConfigProvider.USER_LOGIN,ConfigProvider.USER_PASSWORD)
                 .openVoiceCoursePage().addVoice();
     }
-
+    @Test
     @CsvFileSource(resources = "PairwiseSel.csv")
-    @ParameterizedTest
+//    @ParameterizedTest
     public void openEditInterviewsPage(
             String inperviewName
             , String inperviewDate
