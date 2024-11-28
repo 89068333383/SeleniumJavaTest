@@ -1,7 +1,6 @@
 package aqaAdmin;
 
 import core.BaseSeleniumPage;
-import org.junit.Test;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

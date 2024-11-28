@@ -1,7 +1,7 @@
 import aqaAdmin.LoginPage;
+import aqaAdmin.TestPageEdit;
 import core.BaseSeleniumTest;
-import org.junit.Test;
-import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -91,9 +91,9 @@ public class TestClass extends BaseSeleniumTest {
         loginPage.auth(ConfigProvider.USER_LOGIN,ConfigProvider.USER_PASSWORD)
                 .openVoiceCoursePage().addVoice();
     }
-    @Test
+//    @Test
     @CsvFileSource(resources = "PairwiseSel.csv")
-//    @ParameterizedTest
+    @ParameterizedTest
     public void openEditInterviewsPage(
             String inperviewName
             , String inperviewDate
@@ -108,5 +108,24 @@ public class TestClass extends BaseSeleniumTest {
                         ,inperviewType
                         ,linkVideo
                         ,textEstimation );
+    }
+
+    @CsvFileSource(resources = "PairwiseSel.csv")
+    @ParameterizedTest
+    public void testInterviewsPage(
+            String inperviewName
+            , String inperviewDate
+            , String inperviewType
+            , String linkVideo
+            , String textEstimation
+    ) throws InterruptedException {
+        TestPageEdit testPageEdit = new TestPageEdit();
+        testPageEdit.addAndEditInperview(
+                inperviewName
+                ,inperviewDate
+                ,inperviewType
+                ,linkVideo
+                ,textEstimation
+        );
     }
 }
